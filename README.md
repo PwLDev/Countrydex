@@ -1,4 +1,4 @@
-![CountryBot Logo](https://cdn.discordapp.com/avatars/1090811431391334520/c881fae5ffd7fc914be3813e6b33f313.png?size=128 "CountryBot")
+![CountryBot Logo](https://cdn.discordapp.com/attachments/1091932806206201857/1112432591887409313/portadacountrybotpersonalizable.png "CountryBot")
 
 # CountryBot
 
