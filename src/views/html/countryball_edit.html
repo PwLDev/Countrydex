@@ -1,0 +1,42 @@
+<html>
+    <head></head>
+    <body>
+        <div class="card bg-secondary border-2 border-none text-white">
+            <span class="card-header bg-dark text-white fs-3 fw-semibold ">Editar Countryball</span>
+            <div class="card-body text-white" style="caret-color: transparent; cursor: default;">
+                <p>Nota: No se puede editar la foto de aparición, puedes eliminar el countryball y crear uno nuevo.</p>
+                <form id="countryball_edit_form" style="caret-color: black;">
+                    <div class="mb-3">
+                        <label for="countryball_name" class="form-label">Nombre de Countryball</label>
+                        <input type="text" class="form-control" id="countryball_name" aria-describedby="countryballNameHelp" autocomplete="off" aria-autocomplete="off" onfocus="this.removeAttribute('readonly');">
+                        <div id="countryballNameHelp" class="form-text text-white-50">Este es el nombre renderizado, es decir, el que aparecerá al atraparlo.</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="countryball_alias" class="form-label">Alias para atrapar (Leer descripción)</label>
+                        <input type="text" class="form-control" id="countryball_alias" aria-describedby="countryballAliasHelp" autocomplete="off" aria-autocomplete="off" onfocus="this.removeAttribute('readonly');">
+                        <div id="countryballAliasHelp" class="form-text text-white-50">Esto es sensible y son las alias como se atraparán las balls (opcional ya que se crearán una por defecto automáticamente), <b>sólo usar minúsculas, sin acentos, sin espacios o caracteres especiales y separar alias por comas.</b></b></div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="countryball_hp" class="form-label">Vida por defecto</label>
+                        <input type="number" class="form-control" id="countryball_hp" aria-describedby="countryballHpHelp" autocomplete="off" aria-autocomplete="off" onfocus="this.removeAttribute('readonly');">
+                        <div id="countryballHpHelp" class="form-text text-white-50">Esta es la cantidad de vida que tendrá el countryball (variará según el porcentaje).</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="countryball_atk" class="form-label">Ataque por defecto</label>
+                        <input type="number" class="form-control" id="countryball_atk" aria-describedby="countryballAtkHelp" autocomplete="off" aria-autocomplete="off" onfocus="this.removeAttribute('readonly');">
+                        <div id="countryballAtkHelp" class="form-text text-white-50">Esta es la cantidad de ataque que tendrá el countryball (variará según el porcentaje).</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="countryball_emoji" class="form-label">Emote de la collección (completion) (Leer descripción)</label>
+                        <input type="text" class="form-control" id="countryball_emoji" aria-describedby="countryballEmojiHelp" autocomplete="off" aria-autocomplete="off" onfocus="this.removeAttribute('readonly');">
+                        <div id="countryballEmojiHelp" class="form-text text-white-50">Para obtener el emote como se debe enviar, <a class="text-dark" target="_blank" href="https://cdn.discordapp.com/attachments/1091932806206201857/1107719960341520494/tutorial_emojiid.gif">haz clic aquí para ver cómo</a>.</div>
+                    </div>
+                </form>
+                <button class="btn btn-primary me-1" type="submit" form="countryball_edit_form">Editar</button>
+                <button class="btn btn-danger" id="countryball_cancel">Cancelar</button>
+                <p>Nota: Si el bot está encendido, para aplicar los cambios debes reiniciarlo.</p>
+                <div class="card-footer text-white border-white bg-secondary mt-3">© 2023 PwLDev</div>
+            </div>
+        </div>
+    </body>
+</html>

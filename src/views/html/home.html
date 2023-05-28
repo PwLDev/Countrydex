@@ -1,0 +1,28 @@
+<html>
+    <head></head>
+    <body>
+        <div class="card bg-secondary border-2 border-none text-white;">
+            <span class="card-header bg-dark text-white fs-3 fw-semibold ">Administrar Bot</span>
+            <div class="card-body text-white" style="caret-color: transparent; cursor: default;">
+                <span><b>Estado del bot: </b><span id="bot_status">Obteniendo...</span></span>
+                <div class="align-middle me-5 flex-row mt-2">
+                    <button id="poweron" class="btn btn-primary d-inline-flex">Encender</button>
+                    <button id="poweroff" class="btn btn-danger d-inline-flex disabled">Apagar</button>
+                </div>
+                <p class="mt-3"><span class="bi bi-chevron-down collapse_arrow" id="collapse_arrow_console" data-bs-toggle="collapse" href="#console" aria-expanded="false" aria-controls="console"></span> Consola</p>
+                <div class="collapse" id="console">
+                    <div id="console_container" class="bg-black text-white font-monospace mt-0 p-3 mb-0 overflow-y-scroll" style="width: 50vw; height: 25vh; border-radius: 10px; cursor: text;">
+                    </div>
+                </div>
+
+                <p class="mt-3"><span class="bi bi-chevron-down collapse_arrow" id="collapse_arrow_options" data-bs-toggle="collapse" href="#more_options" aria-expanded="false" aria-controls="more_options"></span> Más opciones</p>
+                <div class="collapse" id="more_options">
+                    <div id="options_container" class="d-flex flex-direction-column me-2">
+                        <button class="btn btn-primary" id="publish_commands">Publicar Comandos</button>
+                    </div>
+                </div>
+                <div class="card-footer text-white border-white bg-secondary mt-3">© 2023 PwLDev</div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,35 @@
+<html>
+    <head></head>
+    <body>
+        <div class="card bg-secondary border-2 border-none text-white;">
+            <span class="card-header bg-dark text-white fs-3 fw-semibold ">Configuración</span>
+            <div class="card-body text-white" style="caret-color: transparent; cursor: default;">
+                <form id="settings_form" style="caret-color: black;">
+                    <div class="mb-3">
+                        <label for="settings_botname" class="form-label">Nombre del bot</label>
+                        <input type="text" class="form-control" id="settings_botname" aria-describedby="botNameHelp" autocomplete="off" aria-autocomplete="off" onfocus="this.removeAttribute('readonly');">
+                        <div id="botNameHelp" class="form-text text-white-50">Este nombre se usará como nombre personalizado para el bot.</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="settings_ballsname" class="form-label">Nombre de countryballs</label>
+                        <input type="text" class="form-control" id="settings_ballsname" aria-describedby="ballsNameHelp" autocomplete="off" aria-autocomplete="off" onfocus="this.removeAttribute('readonly');">
+                        <div id="ballsNameHelp" class="form-text text-white-50">Este nombre se usará como nombre personalizado para los countryballs al aparecer.</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="settings_botdexname" class="form-label">Nombre de la Dex</label>
+                        <input type="text" class="form-control" id="settings_botdexname" aria-describedby="botDexHelp" autocomplete="off" aria-autocomplete="off" onfocus="this.removeAttribute('readonly');">
+                        <div id="botDexHelp" class="form-text text-white-50">Este nombre se usará como nombre del juego Dex.</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="settings_token" class="form-label">Token del bot</label>
+                        <input type="password" class="form-control" id="settings_token" aria-describedby="tokenHelp" autocomplete="one-time-code" aria-autocomplete="one-time-code" onfocus="this.removeAttribute('readonly');">
+                        <div id="tokenHelp" class="form-text text-white-50">El token es la contraseña para iniciar sesión en el bot, éste se encriptará al guardar este formulario. Recuerda nunca compartirlo con nadie.</div>
+                    </div>
+                </form>
+                <button class="btn btn-primary me-1" type="submit" form="settings_form">Guardar cambios</button>
+                <button class="btn btn-danger" id="settings_reset">Restablecer configuración</button>
+                <div class="card-footer text-white border-white bg-secondary mt-3">© 2023 PwLDev</div>
+            </div>
+        </div>
+    </body>
+</html>
