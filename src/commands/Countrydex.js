@@ -83,7 +83,7 @@ export default {
         if (interaction.data.options[0].name == "info") {
             var countryballData;
 
-            if (!owns.has(interaction.member.user.id)) return IntReply(interaction, { content: "¡Aún no has conseguido ningún countryball!" });
+            if (!owns.has(interaction.member.user.id)) return IntReply(interaction, { content: `¡Aún no has conseguido ningún ${DataConfig.countryballsName}!` });
             else {
                 const fetchId = interaction.data.options[0].options[0].value;
                 var cbObject = {};
@@ -95,7 +95,7 @@ export default {
 
                 console.log(cbObject)
 
-                if (Object.keys(cbObject).length == 0) return IntReply(interaction, { content: "No se encontró ese countryball.\nAsegúrate de usar la función de Autocompletar." })
+                if (Object.keys(cbObject).length == 0) return IntReply(interaction, { content: `No se encontró ese ${DataConfig.countryballsName}.\nAsegúrate de usar la función de Autocompletar.` })
                 else {
                     const canvas = createCanvas(1428, 2000);
                     const ctx = canvas.getContext("2d");
@@ -103,7 +103,7 @@ export default {
 
                     ctx.font = "110px Bobby Jones Soft";
 
-                    if (!fs.existsSync(path.resolve(`../data/assets/countrydex/cards/${cbObject.data.names[0]}.png`))) return IntReply(interaction, { content: "Lo siento, no se puede mostrar información de este countryball." });
+                    if (!fs.existsSync(path.resolve(`../data/assets/countrydex/cards/${cbObject.data.names[0]}.png`))) return IntReply(interaction, { content: "Lo siento, no se puede mostrar información de este " + DataConfig.countryballsName });
                     const image = await loadImage(path.resolve(`../data/assets/countrydex/cards/${cbObject.data.names[0]}.png`));
                     ctx.drawImage(image, 0, 0, 1428, 2000);
 
@@ -140,7 +140,7 @@ export default {
 
                 console.log(cbObject)
 
-                if (Object.keys(cbObject).length == 0) return IntReply(interaction, { content: "No se encontró ese countryball.\nAsegúrate de usar la función de Autocompletar." })
+                if (Object.keys(cbObject).length == 0) return IntReply(interaction, { content: `No se encontró ese ${DataConfig.countryballsName}.\nAsegúrate de usar la función de Autocompletar.` })
                 else {
                     const canvas = createCanvas(1428, 2000);
                     const ctx = canvas.getContext("2d");
@@ -250,7 +250,7 @@ export default {
                 else missingNames.push(countryball.names[0])
             });
 
-            if (missingNames.length == 0) renderedMissingList = "**¡Felicitaciones, has obtenido todos los countryballs!**";
+            if (missingNames.length == 0) renderedMissingList = `**¡Felicitaciones, has obtenido todos los ${DataConfig.countryballsName}!**`;
             else {
                 var cache = [];
                 countryballsInfo.countryballs.forEach(countryball => {
@@ -293,7 +293,7 @@ export default {
 
             allOwnedCountryballs.forEach(countryball => { if (countryball.id === requestedId) matches = true })
 
-            if (!matches) return IntReply(interaction, { content: "No se encontró ese countryball.\nAsegúrate de usar la función de Autocompletar." })
+            if (!matches) return IntReply(interaction, { content: `No se encontró ese ${DataConfig.countryballsName}.\nAsegúrate de usar la función de Autocompletar.` })
             else {
                 allOwnedCountryballs.forEach(countryball => {
                     if (countryball.id === requestedId) {
