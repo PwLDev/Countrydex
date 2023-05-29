@@ -15,4 +15,5 @@ Hola, si estás leyendo esto, muy probablemente desees crear tu propio bot con e
 <hr>
 
 ### Video Tutorial de CountryBot Personalizable
-Proximamente...
+
+<iframe width="420" height="315" src="https://www.youtube.com/embed/gs7_yokZ3TU"></iframe>
