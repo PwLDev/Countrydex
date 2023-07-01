@@ -283,7 +283,7 @@ export default {
         }
 
         if (interaction.data.options[0].name === "favorite") {
-            if (!owns.has(interaction.member.user.id)) return IntReply(interaction, { content: "¡Aún no has conseguido ningún countryball!" });
+            if (!owns.has(interaction.member.user.id)) return IntReply(interaction, { content: "¡Aún no has conseguido ningún " + DataConfig["countryballsName"] + "!" });
 
             const allOwnedCountryballs = owns.get(interaction.member.user.id);
             const requestedId = interaction.data.options[0].options[0].value;

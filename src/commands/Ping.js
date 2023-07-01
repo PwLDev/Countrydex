@@ -9,6 +9,7 @@ export default {
         description: "Analiza la latencia del bot."
     },
     run: (ws, message) => {
+        const DataConfig = JSON.parse(fs.readFileSync(path.resolve("../data/config.json"), { encoding: "utf-8" }));
         var renderedPing;
         if (typeof ws.pingMs !== "number") renderedPing = `\`${ws.pingMs}\``
         else renderedPing = `\`${ws.pingMs}ms\``;
@@ -17,7 +18,7 @@ export default {
 
         Reply(message, { embeds: [{
             color: 0x2b7fdf,
-            author: { name: "CountryBot", icon_url: ws.avatarURL },
+            author: { name: DataConfig["dexName"], icon_url: ws.avatarURL },
             title: "¡Pong!",
             description: "Aquí están los resultados de la prueba.",
             fields: [{
@@ -31,6 +32,7 @@ export default {
         }] });
     },
     runSlash: (ws, interaction) => {
+        const DataConfig = JSON.parse(fs.readFileSync(path.resolve("../data/config.json"), { encoding: "utf-8" }));
         var renderedPing;
         if (typeof ws.ping == "string") renderedPing = `\`${ws.pingMs}\``
         else renderedPing = `\`${ws.pingMs}ms\``;
@@ -39,7 +41,7 @@ export default {
 
         InteractionReply(interaction, { embeds: [{
             color: 0x2b7fdf,
-            author: { name: "CountryBot", icon_url: ws.avatarURL },
+            author: { name: DataConfig["dexName"], icon_url: ws.avatarURL },
             title: "¡Pong!",
             description: "Aquí están los resultados de la prueba.",
             fields: [{

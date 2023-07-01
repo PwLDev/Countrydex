@@ -55,17 +55,19 @@ export default {
         }],
     },
     run: async(ws, message, args) => {
+        const DataConfig = JSON.parse(fs.readFileSync(path.resolve("../data/config.json"), { encoding: "utf-8" }));
         return Reply(message, { embeds: [{
             color: 0xcc0000,
-            author: { name: "CountryBot", icon_url: ws.avatarURL },
+            author: { name: DataConfig["dexName"], icon_url: ws.avatarURL },
             footer: { text: `Solicitado por ${message.author.username}`, icon_url: ws.getAvatarURL(message.author) },
             description: ":x: Lo siento, este comando no puede ser utilizado en comando de mensaje."
         }] });
     },
     runSlash: (ws, interaction) => {
         const option = interaction.data.options[0].name;
+        const DataConfig = JSON.parse(fs.readFileSync(path.resolve("../data/config.json"), { encoding: "utf-8" }));
 
-        if (option === "countrydex") {
+        if (option === DataConfig["dexName"]) {
             console.log(interaction.data.options[0].options)
             if (interaction.data.options[0].options[0].type == 1 && interaction.data.options[0].options[0].name === "disable") {
                 if (countrydexConfig.has(interaction.guild_id)) countrydexConfig.del(interaction.guild_id);
