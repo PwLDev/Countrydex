@@ -1,5 +1,6 @@
 import { Reply } from "../utils/Message.js";
 import { IntReply as InteractionReply } from "../utils/Interactions.js";
+import fs from "fs";
 
 export default {
     name: "about",
