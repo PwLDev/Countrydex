@@ -17,32 +17,34 @@ var ongoingTrades = new Map(), luckyMap = new Map();
 
 export { luckyMap };
 
+const DataConfig = JSON.parse(fs.readFileSync(path.resolve("../data/config.json"), { encoding: "utf-8" }));
+
 export default {
-    name: "countryballs",
+    name: DataConfig["countryballsName"] + "s",
     alias: [],
     data: {
         type: 1,
-        name: "countryballs",
-        description: "Interactúa con Countrydex",
+        name: DataConfig["countryballsName"] + "s",
+        description: "Interactúa con " + DataConfig["countryballsName"],
         options: [{
             type: 1,
             name: "info",
-            description: "Muestra información específica de un countryball.",
+            description: "Muestra información específica de un " + DataConfig["countryballsName"],
             options: [{
                 type: 3,
                 name: "countryball",
-                description: "Countryball a inspeccionar.",
+                description: DataConfig["countryballsName"] + " a inspeccionar.",
                 autocomplete: true,
                 required: true
             }]
         }, {
             type: 1,
             name: "give",
-            description: "Regala uno de tus countryballs a otro miembro.",
+            description: "Regala uno de tus " + DataConfig["countryballsName"] + "s" +  " a otro miembro.",
             options: [{
                 type: 3,
-                name: "countryball",
-                description: "Countryball a regalar.",
+                name: DataConfig["countryballsName"],
+                description: DataConfig["countryballsName"] + " a regalar.",
                 autocomplete: true,
                 required: true
             }, {
@@ -54,23 +56,23 @@ export default {
         }, {
             type: 1,
             name: "completion",
-            description: "Muestra tu progreso en Countrydex."
+            description: "Muestra tu progreso en " + DataConfig["dexName"]
         }, {
             type: 1,
             name: "last",
-            description: "Muestra tu último countryball que atrapaste."
+            description: "Muestra tu último " + DataConfig["countryballsName"] +  " que atrapaste."
         }, {
             type: 1,
             name: "about",
-            description: "Muestra más información sobre Countrydex."
+            description: "Muestra más información sobre " + DataConfig["dexName"]
         }, {
             type: 1,
             name: "favorite",
-            description: "Establece uno de tus countryballs como favoritos.",
+            description: "Establece uno de tus " + DataConfig["countryballsName"] + "s" + " como favoritos.",
             options: [{
                 type: 3,
-                name: "countryball",
-                description: "Countryball a modificar.",
+                name: DataConfig["countryballsName"],
+                description: DataConfig["countryballsName"] + " a modificar.",
                 autocomplete: true,
                 required: true
             }]

@@ -9,13 +9,15 @@ import path from "node:path";
 import { triggers, countrydexConfig } from "../events/Ready.js";
 import { intervalMap } from "../events/GuildCreate.js";
 
+const DataConfig = JSON.parse(fs.readFileSync(path.resolve("../data/config.json"), { encoding: "utf-8" }));
+
 export default {
     name: "config",
     alias: ["configurar", "configuracion"],
     data: {
         type: 1,
         name: "config",
-        description: "Administra la configuración de Mr.CountryBot",
+        description: "Administra la configuración de " + DataConfig["dexName"],
         default_member_permissions: (1 << 5).toString(),
         dm_permission: false,
         options: [{
@@ -31,19 +33,19 @@ export default {
         }, {
             type: 2,
             name: "countrydex",
-            description: "Configura Countrydex en tu servidor.",
+            description: `Configura ${DataConfig["dexName"]} en tu servidor.`,
             options: [{
                 type: 1,
                 name: "disable",
-                description: "Desconfigurar Countrydex."
+                description: `Desconfigurar ${DataConfig["dexName"]}.`
             }, {
                 type: 1,
                 name: "enable",
-                description: "Configurar Countrydex.",
+                description: `Configurar ${DataConfig["dexName"]}.`,
                 options: [{
                     type: 7,
                     name: "channel",
-                    description: "Canal donde aparecerán countryballs.",
+                    description: `Canal donde aparecerán ${DataConfig["countryballsName"]}s.`,
                     required: true
                 }, {
                     type: 4,
@@ -77,9 +79,9 @@ export default {
 
                 return IntReply(interaction, { embeds: [{
                     color: 0x2b7fdf,
-                    author: { name: "CountryBot", icon_url: ws.avatarURL },
-                    title: "**✅ Countrydex Desactivado**",
-                    description: `Gracias por usar Countrydex. Adiós :smiling_face_with_tear:`,
+                    author: { name: DataConfig["dexName"], icon_url: ws.avatarURL },
+                    title: `**✅ ${DataConfig["dexName"]} Desactivado**`,
+                    description: `Gracias por usar ${DataConfig["dexName"]}`,
                     footer: { text: `Solicitado por ${interaction.member.user.username}`, icon_url: ws.getAvatarURL(interaction.member.user) }
                 }] });
             }
@@ -89,7 +91,7 @@ export default {
 
             if (interval > 1440 || interval < 1) return IntReply(interaction, { embeds: [{
                 color: 0xcc0000,
-                author: { name: "CountryBot", icon_url: ws.avatarURL },
+                author: { name: DataConfig["dexName"], icon_url: ws.avatarURL },
                 footer: { text: `Solicitado por ${interaction.member.user.username}`, icon_url: ws.getAvatarURL(interaction.member.user) },
                 description: ":x: No se puede establecer el intervalo fuera del rango permitido.\nMáximo: 1440. Mínimo: 1"
             }] });
@@ -108,9 +110,9 @@ export default {
 
             return IntReply(interaction, { embeds: [{
                 color: 0x2b7fdf,
-                author: { name: "CountryBot", icon_url: ws.avatarURL },
-                title: "**✅ Countrydex Activado**",
-                description: `Countrydex ha sido activado exitosamente, los countryballs aparecerán en <#${channel}> cada ${interval} minuto(s).\nLos countryballs aparecerán de manera aleatoria en ese intervalo mientras el bot esté en linea y haya actividad en el canal.`,
+                author: { name: DataConfig["dexName"], icon_url: ws.avatarURL },
+                title: `**✅ ${DataConfig["dexName"]} Activado**`,
+                description: `${DataConfig["dexName"]} ha sido activado exitosamente, los countryballs aparecerán en <#${channel}> cada ${interval} minuto(s).\nLos countryballs aparecerán de manera aleatoria en ese intervalo mientras el bot esté en linea y haya actividad en el canal.`,
                 footer: { text: `Solicitado por ${interaction.member.user.username}`, icon_url: ws.getAvatarURL(interaction.member.user) }
             }] });
         }
