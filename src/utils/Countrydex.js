@@ -13,6 +13,7 @@ const countryballData = require(path.resolve("../data/countryballs.json"));
 var spawns = new Store({ path: path.join(process.cwd() + "/countrydex/spawns.json") });
 
 export async function SpawnRandomCountryball(message) {
+    const DataConfig = JSON.parse(fs.readFileSync(path.resolve("../data/config.json"), { encoding: "utf-8" }));
     const snowflakeId = generate(Date.now()).toString();
     const randomCountryball = countryballData.countryballs[Math.floor(Math.random() * countryballData.countryballs.length)]
     const req = await SendFile(
@@ -20,7 +21,7 @@ export async function SpawnRandomCountryball(message) {
         fs.readFileSync(path.resolve(`../data/assets/countrydex/spawn/${randomCountryball.names[0]}.png`)),
         `countryball_${snowflakeId}.png`,
         {
-            content: "¡Ha aparecido un countryball!",
+            content: "¡Ha aparecido un " + DataConfig["countryballsName"] + "!",
             attachments: [{ id: 0, filename: `countryball_${snowflakeId}.png`, url: `attachment://countryball_${snowflakeId}.png` }],
             components: [{
                 type: 1,
