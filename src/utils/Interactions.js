@@ -1,9 +1,7 @@
 import { APIRequest } from "./APIRequest.js";
 import { Readable } from "node:stream";
 import FormData from "form-data";
-import dotenv from "dotenv";
 import axios from "axios"
-dotenv.config();
 
 export function IntReply(interaction, options) {
     APIRequest(`/interactions/${interaction.id}/${interaction.token}/callback`, { method: "POST", body: { type: 4, data: { ...options } } });

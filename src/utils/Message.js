@@ -2,8 +2,6 @@ import FormData from "form-data";
 import { APIRequest } from "./APIRequest.js";
 import { Readable } from "node:stream";
 import axios from "axios";
-import dotenv from "dotenv";
-dotenv.config();
 
 export function Send(message, options) {
     APIRequest(`/channels/${message.channel_id}/messages`, { method: "POST", body: { ...options } });

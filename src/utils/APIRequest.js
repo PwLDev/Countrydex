@@ -1,7 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
 import fetch from "node-fetch";
-dotenv.config();
 
 export async function APIRequest(endpoint, options) {
     const DataConfig = JSON.parse(fs.readFileSync(path.resolve("../data/config.json"), { encoding: "utf-8" }));
