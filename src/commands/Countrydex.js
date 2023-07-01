@@ -224,7 +224,7 @@ export default {
                 color: 0x2b7fdf,
                 author: { name: DataConfig["botName"], icon_url: ws.avatarURL },
                 title: "Información de " + DataConfig["dexName"],
-                description: `Bot hecho con la herramienta CountryBot Panel, personalizado.\n\nCountrydex, un proyecto inspirado en Ballsdex para los seguidores de Countryballs.\nAtrapa y colecciona cada uno de los countryballs.\n\nCreador: ! Sprite\nProgramador: [PwL](https://github.com/pwldev)\nArtista (Countrybot): Alen't\nCreador original de Ballsdex: [El Laggron](https://github.com/laggron42).`,
+                description: `Este bot fue creado utilizando la herramienta CountryBot Personalizable\n\nCountrydex, un proyecto inspirado en Ballsdex para los seguidores de Countryballs.\nAtrapa y colecciona cada uno de los countryballs.\n\nCreador: Alen't\nProgramador: [PwL](https://github.com/pwldev)\nArtista (Countrybot): Alen't\nCreador original de Ballsdex: [El Laggron](https://github.com/laggron42).`,
                 footer: { text: `Solicitado por ${interaction.member.user.username}`, icon_url: ws.getAvatarURL(interaction.member.user) },
                 image: { url: "https://cdn.discordapp.com/attachments/1091932806206201857/1097351201416294530/58_sin_titulo_20230416135149.png" }
             }] })
