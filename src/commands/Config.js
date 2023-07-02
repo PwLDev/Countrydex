@@ -4,6 +4,7 @@ import { IntReply } from "../utils/Interactions.js";
 import { Reply } from "../utils/Message.js"
 import Store from "data-store";
 import path from "node:path";
+import fs from "node:fs";
 
 // var countrydexConfig = new Store({ path: path.join(process.cwd() + "/countrydex/config.json"), debounce: 0 });
 import { triggers, countrydexConfig } from "../events/Ready.js";
