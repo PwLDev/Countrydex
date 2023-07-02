@@ -17,7 +17,7 @@ export function publishCommands(io) {
         const { default: command } = await import(`./commands/${file}`);
 
         if (!command.data) return;
-        command.data.name.replace("countrydex", DataConfig["dexName"]).replace("Countrydex", DataConfig["dexName"]).replace("countryballs", DataConfig["countryballsName"] + "s")
+        command.data.name = command.data.name.toLowerCase()
         availableCommands.unshift(command.data)
     });
 
