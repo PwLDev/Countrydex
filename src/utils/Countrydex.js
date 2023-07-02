@@ -37,7 +37,7 @@ export async function SpawnRandomCountryball(message) {
         return Send(message, { content: "Lo siento, ocurrió un error al aparecer un" + DataConfig["countryballsName"] })
     })
 
-    if (!req.hasOwnProperty("data")) return;
+    if (!req.data) return;
     const messageId = req.data.id;
 
     spawns.set(snowflakeId, {

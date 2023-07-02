@@ -33,7 +33,7 @@ export default {
             }],
         }, {
             type: 2,
-            name: "countrydex",
+            name: DataConfig["dexName"].toLowerCase(),
             description: `Configura ${DataConfig["dexName"]} en tu servidor.`,
             options: [{
                 type: 1,
@@ -70,7 +70,7 @@ export default {
         const option = interaction.data.options[0].name;
         const DataConfig = JSON.parse(fs.readFileSync(path.resolve("../data/config.json"), { encoding: "utf-8" }));
 
-        if (option === DataConfig["dexName"]) {
+        if (option === DataConfig["dexName"].toLowerCase()) {
             console.log(interaction.data.options[0].options)
             if (interaction.data.options[0].options[0].type == 1 && interaction.data.options[0].options[0].name === "disable") {
                 if (countrydexConfig.has(interaction.guild_id)) countrydexConfig.del(interaction.guild_id);

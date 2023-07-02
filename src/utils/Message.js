@@ -2,6 +2,10 @@ import FormData from "form-data";
 import { APIRequest } from "./APIRequest.js";
 import { Readable } from "node:stream";
 import axios from "axios";
+import fs from "node:fs"
+import path from "node:path";
+
+const DataConfig = JSON.parse(fs.readFileSync(path.resolve("../data/config.json"), { encoding: "utf-8" }));
 
 export function Send(message, options) {
     APIRequest(`/channels/${message.channel_id}/messages`, { method: "POST", body: { ...options } });
@@ -37,7 +41,7 @@ export async function SendFile(message, buffer, filename, options) {
 
     const res = await axios.post(`https://discord.com/api/v10/channels/${message.channel_id}/messages`, form, {
         headers: {
-            Authorization: `Bot ${process.env.token}`,
+            Authorization: `Bot ${Buffer.from(DataConfig["botToken"], "base64").toString("binary")}`,
             "Content-Type": "multipart/form-data",
             "User-Agent": "PwLDev (https://github.com/PwLDev)" // Requerido por la API
         },
