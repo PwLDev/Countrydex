@@ -20,11 +20,11 @@ export { luckyMap };
 const DataConfig = JSON.parse(fs.readFileSync(path.resolve("../data/config.json"), { encoding: "utf-8" }));
 
 export default {
-    name: DataConfig["countryballsName"] + "s",
+    name: DataConfig["countryballsName"].toLowerCase() + "s",
     alias: [],
     data: {
         type: 1,
-        name: DataConfig["countryballsName"] + "s",
+        name: DataConfig["countryballsName"].toLowerCase() + "s",
         description: "Interactúa con " + DataConfig["countryballsName"],
         options: [{
             type: 1,
@@ -43,7 +43,7 @@ export default {
             description: "Regala uno de tus " + DataConfig["countryballsName"] + "s" +  " a otro miembro.",
             options: [{
                 type: 3,
-                name: DataConfig["countryballsName"],
+                name: DataConfig["countryballsName"].toLowerCase(),
                 description: DataConfig["countryballsName"] + " a regalar.",
                 autocomplete: true,
                 required: true
@@ -71,7 +71,7 @@ export default {
             description: "Establece uno de tus " + DataConfig["countryballsName"] + "s" + " como favoritos.",
             options: [{
                 type: 3,
-                name: DataConfig["countryballsName"],
+                name: DataConfig["countryballsName"].toLowerCase(),
                 description: DataConfig["countryballsName"] + " a modificar.",
                 autocomplete: true,
                 required: true

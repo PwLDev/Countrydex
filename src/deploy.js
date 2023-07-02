@@ -17,7 +17,6 @@ export function publishCommands(io) {
         const { default: command } = await import(`./commands/${file}`);
 
         if (!command.data) return;
-        command.data.name = command.data.name.toLowerCase()
         availableCommands.unshift(command.data)
     });
 
